@@ -16,10 +16,10 @@ def execute(args):
             # print(response.text)
             try:
                 data = response.json()
-                categories = data.get("tags", [])
+                categories = data.get("tags")
                 if categories:
                     print("Available data categories:")
-                    for category in categories[:10]:
+                    for category in categories:
                         print(f"- {category.get('name', 'Unknown')}")
                 else:
                     print("No categories found.")
