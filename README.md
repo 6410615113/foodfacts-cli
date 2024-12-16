@@ -9,17 +9,17 @@ A command-line tool to interact with the Open Food Facts API.
 ## Usage
 1. Build the Docker container: 
 ```console
-docker-compose build
+docker compose build
 ```
 2. Run the application: 
 ```console
-docker-compose up
+docker compose up
 ```
 3. Commmand to use `help` subcommand:
 ```console
-docker-compose run foodfacts-cli python foodfacts/cli.py help
+docker compose run foodfacts-cli python foodfacts/cli.py help
 ```
 3. Commmand to use `list` subcommand:
 ```console
-docker-compose run foodfacts-cli python foodfacts/cli.py list
+docker compose run foodfacts-cli python foodfacts/cli.py list
 ```
