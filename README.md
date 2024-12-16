@@ -23,3 +23,7 @@ docker-compose run foodfacts-cli python foodfacts/cli.py help
 ```console
 docker-compose run foodfacts-cli python foodfacts/cli.py list
 ```
+4. Commmand to use `get_product` subcommand:
+```console
+docker-compose run foodfacts-cli python foodfacts/cli.py get_product <category>
+```
