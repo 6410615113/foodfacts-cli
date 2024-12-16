@@ -4,7 +4,7 @@ A command-line tool to interact with the Open Food Facts API.
 ## Features
 - `help`: Display available subcommands.
 - `list`: List available data categories.
-- `get_product <category>`: Display all Product Name and Product ID (barcode) in category. 
+- `search <category>`: Display all Product Name and Product ID (barcode) in category. 
 
 
 ## Usage
@@ -24,7 +24,7 @@ docker compose run foodfacts-cli python foodfacts/cli.py help
 ```console
 docker compose run foodfacts-cli python foodfacts/cli.py list
 ```
-4. Commmand to use `get_product` subcommand:
+4. Commmand to use `search` subcommand:
 ```console
-docker compose run foodfacts-cli python foodfacts/cli.py get_product <category>
+docker compose run foodfacts-cli python foodfacts/cli.py search <category>
 ```

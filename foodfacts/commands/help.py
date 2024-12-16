@@ -6,7 +6,7 @@ def execute(args):
     commands = {
         "help": "Display available commands",
         "list": "List available data categories",
-        "get_product <category>": "Display all Product Name and Product ID (barcode) in category",
+        "search <category>": "Display all Product Name and Product ID (barcode) in category",
     }
 
     print("Available commands:")
