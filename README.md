@@ -14,7 +14,7 @@ docker compose build
 ```
 2. Run the application: 
 ```console
-docker compose up
+docker compose up --detach
 ```
 3. Commmand to use `help` subcommand:
 ```console
