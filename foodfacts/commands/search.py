@@ -2,7 +2,7 @@ import requests
 from tabulate import tabulate
 
 def register_command(subparsers):
-    get_product_parser = subparsers.add_parser('get_product')
+    get_product_parser = subparsers.add_parser('search')
     get_product_parser.add_argument('category')
     get_product_parser.set_defaults(func=execute)
 
@@ -15,7 +15,6 @@ def execute(args):
     if response.status_code == 200:
         data = response.json()
         products = data.get('products', [])
-        
         if products:
             table_data = []
             for product in products:
@@ -23,6 +22,7 @@ def execute(args):
                 product_id = product.get('code', 'N/A')
                 table_data.append([product_name, product_id])
 
+            print(f"Found {len(products)} products:")
             headers = ["Product Name", "Product ID"]
             print(tabulate(table_data, headers=headers, tablefmt="grid"))
         else:
