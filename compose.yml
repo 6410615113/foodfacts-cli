@@ -1,0 +1,8 @@
+services:
+  foodfacts-cli:
+    build: .
+    container_name: foodfacts-cli
+    command: python foodfacts/cli.py
+    volumes:
+      - .:/app
+    working_dir: /app
