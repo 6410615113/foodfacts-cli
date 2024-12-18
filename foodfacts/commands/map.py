@@ -1,7 +1,7 @@
 import requests
 import os
 
-OPENCAGE_API_KEY = "724912952d4e44c6a365265568d7ee3a"
+OPENCAGE_API_KEY = ""
 
 def register_command(subparsers):
     get_product_parser = subparsers.add_parser('map')
