@@ -5,11 +5,12 @@ A command-line tool to interact with the [Open Food Facts API](https://world.ope
 - `help`: Display available subcommands.
 - `list`: List available data categories.
 - `search <category>`: Display all Product Name and Product ID (barcode) in category. 
+- `map <category>`: Display a map of product manufacturing locations.
 
 ## `Dockerfile` usage
 1. Build the Docker container: 
 ```console
-docker image build --tag foodfacts .
+docker image build --tag foodfacts-cli .
 ```
 2. Run the application: 
 ```console
@@ -26,6 +27,10 @@ docker container run foodfacts-cli python foodfacts/cli.py list
 4. Commmand to use `search` subcommand:
 ```console
 docker container run foodfacts-cli python foodfacts/cli.py search <category>
+```
+5. Commmand to use `map` subcommand:
+```console
+docker container run foodfacts-cli python foodfacts/cli.py map <category>
 ```
 
 ## `compose.yml` usage
@@ -48,4 +53,8 @@ docker compose run foodfacts-cli python foodfacts/cli.py list
 4. Commmand to use `search` subcommand:
 ```console
 docker compose run foodfacts-cli python foodfacts/cli.py search <category>
+```
+5. Commmand to use `map` subcommand:
+```console
+docker compose run foodfacts-cli python foodfacts/cli.py map <category>
 ```
