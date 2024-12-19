@@ -28,9 +28,9 @@ docker container run foodfacts-cli python foodfacts/cli.py list
 ```console
 docker container run foodfacts-cli python foodfacts/cli.py search <category>
 ```
-5. Commmand to use `map` subcommand:
+5. Commmand to use `nutrition` subcommand:
 ```console
-docker container run foodfacts-cli python foodfacts/cli.py map <category>
+docker container run foodfacts-cli python foodfacts/cli.py nutrition <product id>
 ```
 
 ## `compose.yml` usage
@@ -54,7 +54,7 @@ docker compose run foodfacts-cli python foodfacts/cli.py list
 ```console
 docker compose run foodfacts-cli python foodfacts/cli.py search <category>
 ```
-5. Commmand to use `map` subcommand:
+5. Commmand to use `nutrition` subcommand:
 ```console
-docker compose run foodfacts-cli python foodfacts/cli.py map <category>
+docker compose run foodfacts-cli python foodfacts/cli.py nutrition <product id>
 ```

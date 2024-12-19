@@ -7,7 +7,7 @@ def execute(args):
         "help": "Display available commands",
         "list": "List available data categories",
         "search <category>": "Display all Product Name and Product ID (barcode) in category",
-        "map <category>": "Display a map of product manufacturing locations",
+        "nutritions <product_id>": "Display nutrition facts of products",
     }
 
     print("Available commands:")
