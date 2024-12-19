@@ -1,10 +1,18 @@
 import requests
+import textwrap
 from tabulate import tabulate
 
 def register_command(subparsers):
-    get_product_parser = subparsers.add_parser('search', help="Search products by category or ID")
-    get_product_parser.add_argument('query', help="Category name or Product ID to search")
-    get_product_parser.set_defaults(func=execute)
+    search_parser = subparsers.add_parser('search', help="Search for a product by category or ID")
+    search_parser.add_argument('query', help="Category name or Product ID to search")
+    search_parser.set_defaults(func=execute)
+
+def format_text(label, text, width=70):
+    if text != 'N/A':
+        wrapped_text = textwrap.fill(text, width=width, subsequent_indent='                                 ')
+    else:
+        wrapped_text = 'N/A'
+    return f"{label:<31}: {wrapped_text}"
 
 def execute(args):
     query = args.query
@@ -16,16 +24,23 @@ def execute(args):
             data = response.json()
             if 'product' in data:
                 product = data['product']
-                table_data = [
-                    ["Product Name", product.get('product_name', 'N/A')],
-                    ["Brand", product.get('brands', 'N/A')],
-                    ["Nutritional Grade", product.get('nutrition_grades', 'N/A')],
-                    ["Energy (kcal)", product.get('nutriments', {}).get('energy-kcal_100g', 'N/A')],
-                    ["Proteins (g)", product.get('nutriments', {}).get('proteins_100g', 'N/A')],
-                    ["Carbohydrates (g)", product.get('nutriments', {}).get('carbohydrates_100g', 'N/A')],
-                    ["Fat (g)", product.get('nutriments', {}).get('fat_100g', 'N/A')]
-                ]
-                print(tabulate(table_data, headers=["Attribute", "Value"], tablefmt="grid"))
+                print(f"\n{product.get('product_name', 'N/A')} - "
+                      f"{product.get('brands', 'N/A')} - {product.get('quantity', 'N/A')}\n")
+                
+                print("Product Details:")
+                barcode_number = product.get('code', 'N/A')
+                print(format_text("Barcode", barcode_number))
+                print(format_text("Common name", product.get('generic_name', 'N/A')))
+                print(format_text("Quantity", product.get('quantity', 'N/A')))
+                print(format_text("Packaging", product.get('packaging', 'N/A')))
+                print(format_text("Brands", product.get('brands', 'N/A')))
+                print(format_text("Categories", product.get('categories', 'N/A')))
+                print(format_text("Labels, certifications, awards", product.get('labels', 'N/A')))
+                print(format_text("Origin", product.get('origins', 'N/A')))
+                print(format_text("Manufacturing/Processing places", product.get('manufacturing_places', 'N/A')))
+                print(format_text("Stores", product.get('stores', 'N/A')))
+                print(format_text("Countries where sold", product.get('countries', 'N/A')))
+                print(format_text("Link to the product page", product.get('url', 'N/A')))
             else:
                 print(f"No detailed information available for product ID '{query}'.")
         else:
@@ -38,7 +53,7 @@ def execute(args):
             products = data.get('products', [])
             if products:
                 table_data = []
-                for product in products[:10]:
+                for product in products:
                     product_name = product.get('product_name', 'N/A')
                     product_id = product.get('code', 'N/A')
                     table_data.append([product_name, product_id])
