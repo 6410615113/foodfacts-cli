@@ -38,7 +38,7 @@ def execute(args):
             products = data.get('products', [])
             if products:
                 table_data = []
-                for product in products[:10]:
+                for product in products:
                     product_name = product.get('product_name', 'N/A')
                     product_id = product.get('code', 'N/A')
                     table_data.append([product_name, product_id])
