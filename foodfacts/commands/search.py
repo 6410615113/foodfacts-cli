@@ -3,8 +3,8 @@ import textwrap
 from tabulate import tabulate
 
 def register_command(subparsers):
-    search_parser = subparsers.add_parser('search', help="Search for a product by category or ID")
-    search_parser.add_argument('query', help="Category name or Product ID to search")
+    search_parser = subparsers.add_parser('search')
+    search_parser.add_argument('query')
     search_parser.set_defaults(func=execute)
 
 def format_text(label, text, width=70):
