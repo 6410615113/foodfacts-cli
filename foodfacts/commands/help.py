@@ -6,6 +6,7 @@ def execute(args):
     commands = {
         "help": "Display available commands",
         "list": "List available data categories",
+        "favorites" : "Manage favorite products",
     }
 
     print("Available commands:")
