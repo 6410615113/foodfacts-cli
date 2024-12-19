@@ -9,7 +9,7 @@ A command-line tool to interact with the [Open Food Facts API](https://world.ope
 ## `Dockerfile` usage
 1. Build the Docker container: 
 ```console
-docker image build --tag foodfacts .
+docker image build --tag foodfacts-cli .
 ```
 2. Run the application: 
 ```console
