@@ -37,7 +37,7 @@ docker compose up --detach
 ```console
 docker compose run foodfacts-cli python foodfacts/cli.py help
 ```
-3. Commmand to use `list` subcommand:
+4. Commmand to use `list` subcommand:
 ```console
 docker compose run foodfacts-cli python foodfacts/cli.py list
 ```
