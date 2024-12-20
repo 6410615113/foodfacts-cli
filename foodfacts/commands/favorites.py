@@ -34,7 +34,7 @@ def fetch_product_name(product_id):
 
 
 def register_command(subparsers):
-    parser = subparsers.add_parser("favorites", help="Manage favorite products")
+    parser = subparsers.add_parser("favorites", help="Display or manage favorite products")
     subparsers_favorites = parser.add_subparsers(dest="action", help="Favorites actions")
 
     add_parser = subparsers_favorites.add_parser("add", help="Add a product to favorites")
