@@ -1,5 +1,5 @@
 import argparse
-from foodfacts.commands import help, list
+from foodfacts.commands import favorites, help, list
 import sys
 print("Python Path:", sys.path)
 
@@ -9,6 +9,7 @@ def main():
 
     help.register_command(subparsers)
     list.register_command(subparsers)
+    favorites.register_command(subparsers)
 
     args = parser.parse_args()
     if args.command:
