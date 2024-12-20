@@ -2,7 +2,7 @@ import requests
 from tabulate import tabulate
 
 def register_command(subparsers):
-    get_product_parser = subparsers.add_parser('nutrition')
+    get_product_parser = subparsers.add_parser('nutrition', help="Display nutrition facts of products")
     get_product_parser.add_argument('product_id')
     get_product_parser.set_defaults(func=execute)
 
