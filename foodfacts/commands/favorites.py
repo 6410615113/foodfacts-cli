@@ -15,7 +15,7 @@ def load_favorites():
     return []
 
 
-def save_favorites(favorites):
+def save_favorite(favorites):
     with open(FAVORITES_FILE, "w") as file:
         json.dump(favorites, file, indent=4)
 
@@ -56,7 +56,7 @@ def execute(args):
             print(f"Product {args.product_id} is already in favorites.")
         else:
             favorites.append(args.product_id)
-            save_favorites(favorites)
+            save_favorite(favorites)
             print(f"Product {args.product_id} added to favorites.")
 
     elif args.action == "list":
@@ -71,7 +71,7 @@ def execute(args):
     elif args.action == "remove":
         if args.product_id in favorites:
             favorites.remove(args.product_id)
-            save_favorites(favorites)
+            save_favorite(favorites)
             print(f"Product {args.product_id} removed from favorites.")
         else:
             print(f"Product {args.product_id} is not in favorites.")
